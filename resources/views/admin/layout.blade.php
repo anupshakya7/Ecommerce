@@ -10,13 +10,19 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Login</title>
+    <title>@yield('page_title')</title>
 
     <!-- Fontfaces CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="{{asset('admin_assets/css/font-face.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('admin_assets/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('admin_assets/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('admin_assets/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_assets/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet"
+        media="all">
+    <link href="{{asset('admin_assets/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet"
+        media="all">
+    <link href="{{asset('admin_assets/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet"
+        media="all">
 
     <!-- Bootstrap CSS-->
     <link href="{{asset('admin_assets/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
@@ -48,13 +54,17 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="active">
+                        <li class="@yield('dashboard_select')">
                             <a class="js-arrow" href="{{route('admin.dashboard')}}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-                        <li>
+                        <li class="@yield('category_select')">
                             <a href="{{route('admin.category')}}">
-                                <i class="fas fa-chart-bar"></i>Category</a>
+                                <i class="fa-solid fa-list"></i>Category</a>
+                        </li>
+                        <li class="@yield('coupon_select')">
+                            <a href="{{route('admin.coupon')}}">
+                                <i class="fa-solid fa-tag"></i>Coupon</a>
                         </li>
                     </ul>
                 </div>
@@ -72,13 +82,17 @@
             <div class="menu-sidebar__content">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active">
+                        <li class="@yield('dashboard_select')">
                             <a class="js-arrow" href="{{route('admin.dashboard')}}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                         </li>
-                        <li>
+                        <li class="@yield('category_select')">
                             <a href="{{route('admin.category')}}">
-                                <i class="fas fa-chart-bar"></i>Category</a>
+                                <i class="fa-solid fa-list"></i>Category</a>
+                        </li>
+                        <li class="@yield('coupon_select')">
+                            <a href="{{route('admin.coupon')}}">
+                                <i class="fa-solid fa-tag"></i>Coupon</a>
                         </li>
                     </ul>
                 </nav>

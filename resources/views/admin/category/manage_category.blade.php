@@ -1,4 +1,5 @@
 @extends('admin.layout')
+@section('page_title','Manage Category')
 @section('content')
 <h2>Manage Category</h2>
 <a href="{{route('admin.category')}}" type="button" class="btn btn-success my-3">Back</a>
@@ -11,7 +12,8 @@
                     <input type="hidden" name="id" value="{{$result['id']}}">
                     <div class="form-group">
                         <label for="category_name" class="control-label mb-1">Category</label>
-                        <input id="category_name" name="category_name" value="{{$result['category_name']}}" type="text" class="form-control" placeholder="Category Name" required>
+                        <input id="category_name" name="category_name" value="{{$result['category_name']}}" type="text"
+                            class="form-control" placeholder="Category Name" required>
                         @error('category_name')
                         <div class="alert alert-danger" role="alert">
                             {{$message}}
@@ -20,7 +22,8 @@
                     </div>
                     <div class="form-group">
                         <label for="category_slug" class="control-label mb-1">Category Slug</label>
-                        <input id="category_slug" name="category_slug" type="text" value="{{$result['category_slug']}}" class="form-control" placeholder="Category Slug" required>
+                        <input id="category_slug" name="category_slug" type="text" value="{{$result['category_slug']}}"
+                            class="form-control" placeholder="Category Slug" required>
                         @error('category_slug')
                         <div class="alert alert-danger" role="alert">
                             {{$message}}
