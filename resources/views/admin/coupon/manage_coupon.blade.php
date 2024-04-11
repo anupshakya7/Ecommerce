@@ -1,5 +1,6 @@
 @extends('admin.layout')
 @section('page_title','Manage Coupon')
+@section('coupon_select','active')
 @section('content')
 <h2>Manage Coupon</h2>
 <a href="{{route('admin.coupon')}}" type="button" class="btn btn-success my-3">Back</a>

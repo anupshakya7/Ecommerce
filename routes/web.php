@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\SizeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,10 +44,34 @@ Route::group(['prefix' => 'admin','middleware' => 'admin_auth'], function () {
     })->name('admin.logout');
 
     //Coupon
-    Route::get('coupon', [CouponController::class,'index'])->name('admin.coupon');
-    Route::get('coupon/manage_coupon', [CouponController::class,'manage_coupon'])->name('admin.manage_coupon');
-    Route::post('coupon/manage_coupon_process', [CouponController::class,'manage_coupon_process'])->name('admin.coupon.process');
-    Route::get('coupon/manage_coupon/{id}', [CouponController::class,'manage_coupon'])->name('admin.manage_coupon.update');
-    Route::get('coupon/status/{status}/{id}', [CouponController::class,'status'])->name('admin.manage_coupon.status');
-    Route::get('coupon/delete/{id}', [CouponController::class,'delete'])->name('admin.coupon.delete');
+    Route::prefix('coupon')->group(function () {
+        Route::get('/', [CouponController::class,'index'])->name('admin.coupon');
+        Route::get('/manage_coupon', [CouponController::class,'manage_coupon'])->name('admin.manage_coupon');
+        Route::post('/manage_coupon_process', [CouponController::class,'manage_coupon_process'])->name('admin.coupon.process');
+        Route::get('/manage_coupon/{id}', [CouponController::class,'manage_coupon'])->name('admin.manage_coupon.update');
+        Route::get('/status/{status}/{id}', [CouponController::class,'status'])->name('admin.manage_coupon.status');
+        Route::get('/delete/{id}', [CouponController::class,'delete'])->name('admin.coupon.delete');
+    });
+
+
+    //Size
+    Route::prefix('size')->group(function () {
+        Route::get('/', [SizeController::class,'index'])->name('admin.size');
+        Route::get('/manage_size', [SizeController::class,'manage_size'])->name('admin.manage_size');
+        Route::post('/manage_size_process', [SizeController::class,'manage_size_process'])->name('admin.size.process');
+        Route::get('/manage_size/{id}', [SizeController::class,'manage_size'])->name('admin.manage_size.update');
+        Route::get('/status/{status}/{id}', [SizeController::class,'status'])->name('admin.manage_size.status');
+        Route::get('/delete/{id}', [SizeController::class,'delete'])->name('admin.size.delete');
+    });
+
+    //Color
+    Route::prefix('color')->group(function () {
+        Route::get('/', [ColorController::class,'index'])->name('admin.color');
+        Route::get('/manage_color', [ColorController::class,'manage_color'])->name('admin.manage.color');
+        Route::post('/manage_color_process', [ColorController::class,'manage_color_process'])->name('admin.color.process');
+        Route::get('/manage_color/{id}', [ColorController::class,'manage_color'])->name('admin.manage_color.update');
+        Route::get('/status/{status}/{id}', [ColorController::class,'status'])->name('admin.manage_color.status');
+        Route::get('/delete/{id}', [ColorController::class,'delete'])->name('admin.color.delete');
+    });
+
 });

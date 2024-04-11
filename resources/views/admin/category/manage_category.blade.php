@@ -1,5 +1,6 @@
 @extends('admin.layout')
 @section('page_title','Manage Category')
+@section('category_select','active')
 @section('content')
 <h2>Manage Category</h2>
 <a href="{{route('admin.category')}}" type="button" class="btn btn-success my-3">Back</a>

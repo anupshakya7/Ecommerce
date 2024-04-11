@@ -94,6 +94,14 @@
                             <a href="{{route('admin.coupon')}}">
                                 <i class="fa-solid fa-tag"></i>Coupon</a>
                         </li>
+                        <li class="@yield('size_select')">
+                            <a href="{{route('admin.size')}}">
+                                <i class="fa-solid fa-down-left-and-up-right-to-center"></i>Size</a>
+                        </li>
+                        <li class="@yield('color_select')">
+                            <a href="{{route('admin.color')}}">
+                                <i class="fa-solid fa-palette"></i>Color</a>
+                        </li>
                     </ul>
                 </nav>
             </div>
